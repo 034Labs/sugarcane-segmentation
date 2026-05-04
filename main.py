@@ -6,7 +6,7 @@ from rfdetr.assets.coco_classes import COCO_CLASSES
 
 # 1. Inicialização do Modelo
 model = RFDETRSegMedium()
-#model.optimize_for_inference()
+model.optimize_for_inference()
 
 # 2. Inferência de Teste
 IMAGE_PATH = "images/junior-galdino-066.jpg"
