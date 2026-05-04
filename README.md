@@ -10,4 +10,4 @@ O foco principal é aplicar técnicas avançadas de visão computacional (segmen
 
 - Python
 - PyTorch
-- RF-DETR (Robust Feature Detection Transformer)
+- RF-DETR (Roboflow Detection Transformer)
