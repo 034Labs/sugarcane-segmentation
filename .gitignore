@@ -1,3 +1,6 @@
 .vscode/
-rf-detr-seg-medium.pt
 results/
+videos/
+images/
+images
+rf-detr-seg-medium.pt
