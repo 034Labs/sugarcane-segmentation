@@ -16,7 +16,7 @@ def process_frame(model, frame_bgr, target_id, threshold, target_class,
     # BGR -> RGB
     frame_rgb = cv2.cvtColor(frame_bgr, cv2.COLOR_BGR2RGB)
 
-    # ===== INFERÊNCIA (MEDIÇÃO PRECISA) =====
+    # ===== INFERÊNCIA =====
     if torch.cuda.is_available():
         torch.cuda.synchronize()
 
@@ -57,7 +57,7 @@ def process_frame(model, frame_bgr, target_id, threshold, target_class,
         annotated_rgb = frame_rgb
 
     # ===== OVERLAY =====
-    text = f"Detecções ({target_class}): {target_count}"
+    text = f"Deteccoes ({target_class}): {target_count}"
     cv2.rectangle(annotated_rgb, (5, 5), (320, 45), (0, 0, 0), -1)
     cv2.putText(
         annotated_rgb,
@@ -84,8 +84,7 @@ def main():
     parser.add_argument('--class', dest='target_class', type=str, default='person')
     parser.add_argument('--threshold', type=float, default=0.3)
     parser.add_argument('--output', type=str, default='results/output')
-    parser.add_argument('--resize', type=float, default=1.0,
-                        help='Escala do frame (ex: 0.5 = metade da resolução)')
+    parser.add_argument('--resize', type=float, default=1.0)
 
     args = parser.parse_args()
 
