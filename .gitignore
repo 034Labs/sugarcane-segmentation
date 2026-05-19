@@ -3,3 +3,5 @@ results/
 videos/
 images/
 rf-detr-seg-medium.pt
+__pycache__/
+*.py[cod]
