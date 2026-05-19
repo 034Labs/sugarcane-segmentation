@@ -46,3 +46,48 @@ Para validar a eficácia do modelo no ambiente de armazenamento, são utilizadas
 ## ⚖️ Licença e Propriedade Intelectual
 
 Este software está em processo de **registro junto ao INPI** (Instituto Nacional da Propriedade Industrial). A publicação neste repositório visa a colaboração acadêmica e o desenvolvimento de soluções tecnológicas para o setor sucroenergético.
+
+---
+
+## 🚀 Quick Start (RF-DETR Study Code)
+
+> Nota: o contexto deste repositório descreve o objetivo final em cana-de-acucar, mas o script atual foi estruturado para **estudo da framework RF-DETR** com classes COCO (ex.: `person`).
+
+### 1) Instalar dependencias
+
+```bash
+python -m venv .venv
+# Windows (PowerShell)
+.venv\Scripts\Activate.ps1
+pip install -r requirements.txt
+```
+
+### 2) Rodar inferencia em imagem
+
+```bash
+python main.py --image images/junior-galdino-066.jpg --class person --threshold 0.3 --output results/output
+```
+
+Saida esperada: `results/output.jpg`
+
+### 3) Rodar inferencia em video
+
+```bash
+python main.py --video videos/pessoas.mp4 --class person --threshold 0.3 --output results/output
+```
+
+Saida esperada: `results/output.mp4`
+
+### 4) Parametros uteis
+
+- `--class`: classe COCO alvo (padrao: `person`)
+- `--threshold`: limiar de confianca
+- `--resize`: fator de escala de entrada/saida (ex.: `0.5`, `1.0`, `1.5`)
+- `--output`: prefixo do arquivo de saida (sem extensao)
+
+### 5) Estrutura de codigo (modular)
+
+- `main.py`: ponto de entrada
+- `segmentation_app/cli.py`: argumentos, modelo e roteamento
+- `segmentation_app/inference.py`: inferencia por frame
+- `segmentation_app/pipeline.py`: pipeline de imagem/video e metricas
